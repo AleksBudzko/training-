@@ -18,7 +18,10 @@ public class BinarySearch {
     public static int binarySearch(int[] arr,int key,int low,int high){
         int mid = low+(high-low)/2;
 
-        if(arr[mid]<key){
+        if(low>high){
+            return -1;
+        }
+        else if(arr[mid]<key){
             low = mid+1;
             return binarySearch(arr,key,low,high);
         }
@@ -26,9 +29,6 @@ public class BinarySearch {
             high = mid-1;
             return binarySearch(arr,key,low,high);
         }
-        else if(arr[mid] ==key){
-            return mid;
-        }
-        else return -1; //if we will not find our number
+        else return mid; //if we will not find our number
     }
 }
